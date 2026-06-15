@@ -28,7 +28,7 @@ app.get('/about',(req,res)=>{
 //gallery URL (page 3)
 app.get('/gallery',(req,res)=>{
     let title = "Gallery Page";
-    res.render('page/gallery', {'title': title});
+    res.render('pages/gallery', {'title': title});
 });
 
 //contact URL (page 4)
