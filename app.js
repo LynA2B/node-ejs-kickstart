@@ -25,6 +25,12 @@ app.get('/about',(req,res)=>{
     res.render('pages/about',{'title': title});
 });
 
+//gallery URL (page 3)
+app.get('/gallery',(req,res)=>{
+    let title = "Gallery Page";
+    res.render('page/gallery', {'title': title});
+});
+
 //Set server to listen for requests
 app.listen(port, () => {
   console.log(`Server running at port: ${port}`);
