@@ -1,0 +1,41 @@
+<%- include('.../partials/header') %>
+
+<div class="container my-5">
+    <div class="card shadow-sm mx-auto" style="max-width: 700px;">
+        <div class="card-body p-4" style="position:relative">
+
+            <h2 class="card-title mb-1"><%= user.first_name %> <%= user.last_name %></h2>
+            <p class="text-muted mb-4">User Reference ID: #<%= user.id %></p>
+
+            <p class="card-text fs-5">
+                <b>Email:</b>
+                <a href="mailto:<%= user.email %>"><%= user.email %></a>
+            </p>
+
+            <% if (user.id % 2 === 0) { %>
+                <div style="postion:absolute; right: 24px; top: 24px;">
+                    <img class="rounded-cirlce border"
+                    src="https://randomuser.me/api/portraits/men/"<%= user.id %>.jpg"
+                    width="120">
+                </div>
+            <% } else { %>
+                <div style="postion:absolute; right: 24px; top: 24px;">
+                    <img class="rounded-cirlce border"
+                        src="https://randomuser.me/api/portraits/women/<%= user.id %>.jpg"
+                        width="120">
+                </div>
+                <% } %>
+                <div class="mt-4 w-75">
+                    <p class="card-text">
+                        <b>Bio:</b> Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                    </p>
+                </div>
+
+                <div class="mt-4 pt-3 border-top">
+                    <a href="/users" class="btn btn-outline-primary">Back to Users</a>
+                </div>
+        </div>
+    </div>
+</div>
+
+<%- inlcude('../partials/footer') %>
