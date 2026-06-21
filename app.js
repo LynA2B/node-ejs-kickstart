@@ -7,6 +7,8 @@ const port = 3000;
 //create instance of Express app
 const app = express();
 
+const userData = require('./data/test.json');
+
 //ejs is templating engine
 app.set('view engine','ejs');
 
@@ -40,5 +42,20 @@ app.get('/contact',(req,res)=>{
 //Set server to listen for requests
 app.listen(port, () => {
   console.log(`Server running at port: ${port}`);
+});
+
+app.get('/users', (req, res) => {
+    res.render('users/index', {
+        title: 'User Directory',
+        users: userData
+    });
+});
+
+app.get('/user/view/:id', (req, res) => {
+    let id = parseInt(req.params.id) - 1;
+    res.render('users/view', {
+        title: 'User Profile',
+        user: userData[id]
+    });
 });
 
